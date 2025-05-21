@@ -1,0 +1,14 @@
+let str = "hello world";
+let num = 123;
+let bool = true;
+let symbol = Symbol("symbol");
+let undef = undefined;
+let nul = null;
+let bigInt = BigInt(1234567890123456789012345678901234567890);
+ console.log(str);
+console.log(num);
+console.log(bool);
+console.log(symbol);
+console.log(undef);
+console.log(nul);
+console.log(bigInt);
