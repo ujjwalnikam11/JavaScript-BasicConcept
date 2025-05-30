@@ -1,0 +1,70 @@
+<html>
+<head>
+    <title>Comprehensive Calculator</title>
+</head>
+<body>
+    <h2>Mathematical Operations</h2>
+    <label>Enter Value 1: </label>
+    <input type="number" id="val1" />
+    <br /><br />
+    <label>Enter Value 2: </label>
+    <input type="number" id="val2" />
+    <br /><br />
+    <button onclick="performOperation('+')">Add</button>
+    <button onclick="performOperation('-')">Subtract</button>
+    <button onclick="performOperation('*')">Multiply</button>
+    <button onclick="performOperation('/')">Divide</button>
+    <button onclick="performOperation('^')">Exponentiate</button>
+    <button onclick="performOperation('sqrt')">Square Root (Val1)</button>
+    <button onclick="performOperation('log')">Logarithm (Val1)</button>
+    <p id="result"></p>
+
+    <script type="text/javascript">
+        function performOperation(op) {
+            const num1 = parseFloat(document.getElementById("val1").value);
+            const num2 = parseFloat(document.getElementById("val2").value);
+            let result;
+
+            switch (op) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 !== 0) {
+                        result = num1 / num2;
+                    } else {
+                        result = "Cannot divide by zero";
+                    }
+                    break;
+                case '^':
+                    result = Math.pow(num1, num2);
+                    break;
+                case 'sqrt':
+                    if (num1 >= 0) {
+                        result = Math.sqrt(num1);
+                    } else {
+                        result = "Cannot compute square root of a negative number";
+                    }
+                    break;
+                case 'log':
+                    if (num1 > 0) {
+                        result = Math.log(num1);
+                    } else {
+                        result = "Logarithm undefined for non-positive numbers";
+                    }
+                    break;
+                default:
+                    result = "Invalid operation";
+            }
+
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+    </script>
+</body>
+</html>
